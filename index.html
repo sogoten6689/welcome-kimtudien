@@ -2,110 +2,173 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Welcome | Kim Từ Điển</title>
+  <title>Research Projects – HCMUS Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body {
-      background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  <!-- Language Toggle Script -->
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        el.style.display = el.dataset.lang === lang ? "block" : "none";
+      });
     }
-  </style>
+    window.onload = () => setLang("vi");
+  </script>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-4">
 
+<body class="bg-slate-50 text-slate-800">
   <!-- Header -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">
-      🌏 Hệ sinh thái Kim Từ Điển
-    </h1>
-    <p class="text-gray-600 max-w-2xl">
-      Các ứng dụng hỗ trợ học tập, tiếp cận tri thức và công nghệ
-      dành cho mọi người – đặc biệt là người khiếm thị.
-    </p>
-  </div>
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-start">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">
+          Research & Student Projects
+        </h1>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          Laboratory projects under the supervision of  
+          <span class="font-medium">University of Science – VNUHCM</span>
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Các dự án nghiên cứu và đồ án sinh viên được thực hiện  
+          dưới sự quản lý của  
+          <span class="font-medium">Trường Đại học Khoa học Tự nhiên – ĐHQG HCM</span>
+        </p>
+        <a
+          href="https://www.clc.hcmus.edu.vn/"
+          target="_blank"
+          class="inline-block mt-3 text-blue-600 hover:underline text-sm"
+        >
+          Faculty of Computer Science (CLC) ↗
+        </a>
+      </div>
 
-  <!-- Apps Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
+      <!-- Language Switch -->
+      <div class="space-x-2 text-sm">
+        <button onclick="setLang('vi')" class="px-3 py-1 border rounded hover:bg-slate-100">VI</button>
+        <button onclick="setLang('en')" class="px-3 py-1 border rounded hover:bg-slate-100">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="max-w-6xl mx-auto px-6 py-10">
+    <p class="text-lg text-slate-700" data-lang="en">
+      This website introduces a set of experimental applications and research
+      prototypes developed by students as part of coursework, graduation
+      projects, and laboratory research activities.
+    </p>
+    <p class="text-lg text-slate-700" data-lang="vi">
+      Trang web này giới thiệu các ứng dụng thử nghiệm và hệ thống nghiên cứu
+      được phát triển bởi sinh viên trong các học phần, đồ án tốt nghiệp và
+      hoạt động nghiên cứu tại phòng thí nghiệm.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section class="max-w-6xl mx-auto px-6 pb-16 grid gap-6 md:grid-cols-2">
 
     <!-- VoiceDict -->
-    <a href="https://multidic.kimtudien.com.vn/"
-       class="group bg-white rounded-xl shadow hover:shadow-lg transition p-6 border">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">
-        🔊 VoiceDict
-      </h2>
-      <p class="text-gray-600 mb-4">
-        Từ điển đa ngữ cho người khiếm thị, hỗ trợ tra cứu bằng giọng nói.
+    <div class="bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-semibold">VoiceDict</h2>
+      <p class="mt-2 text-slate-600" data-lang="en">
+        A multilingual dictionary designed to support visually impaired users
+        through speech interaction.
       </p>
-      <span class="text-sm text-indigo-500 group-hover:underline">
-        multidic.kimtudien.com.vn →
-      </span>
-    </a>
+      <p class="mt-2 text-slate-600" data-lang="vi">
+        Ứng dụng từ điển đa ngữ hỗ trợ người khiếm thị thông qua tương tác giọng nói.
+      </p>
+      <a href="https://multidic.kimtudien.com.vn/" target="_blank"
+         class="inline-block mt-4 text-blue-600 hover:underline">
+        Visit →
+      </a>
+    </div>
 
     <!-- Paracor -->
-    <a href="https://paracor.kimtudien.com.vn/"
-       class="group bg-white rounded-xl shadow hover:shadow-lg transition p-6 border">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">
-        📘 Paracor
-      </h2>
-      <p class="text-gray-600 mb-4">
-        Công cụ song ngữ đối chiếu, hỗ trợ học và nghiên cứu ngôn ngữ.
+    <div class="bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-semibold">Paracor</h2>
+      <p class="mt-2 text-slate-600" data-lang="en">
+        A bilingual parallel corpus system for linguistic comparison and research.
       </p>
-      <span class="text-sm text-indigo-500 group-hover:underline">
-        paracor.kimtudien.com.vn →
-      </span>
-    </a>
+      <p class="mt-2 text-slate-600" data-lang="vi">
+        Hệ thống song ngữ đối chiếu phục vụ nghiên cứu ngôn ngữ học.
+      </p>
+      <a href="https://paracor.kimtudien.com.vn/" target="_blank"
+         class="inline-block mt-4 text-blue-600 hover:underline">
+        Visit →
+      </a>
+    </div>
 
     <!-- Math2Speech -->
-    <a href="https://formula.kimtudien.com.vn/"
-       class="group bg-white rounded-xl shadow hover:shadow-lg transition p-6 border">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">
-        🧮 Math2Speech
-      </h2>
-      <p class="text-gray-600 mb-4">
-        Nhận dạng và đọc công thức toán học trực tiếp từ hình ảnh.
+    <div class="bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-semibold">Math2Speech</h2>
+      <p class="mt-2 text-slate-600" data-lang="en">
+        An experimental system that recognizes mathematical formulas from images
+        and converts them into speech.
       </p>
-      <span class="text-sm text-indigo-500 group-hover:underline">
-        formula.kimtudien.com.vn →
-      </span>
-    </a>
+      <p class="mt-2 text-slate-600" data-lang="vi">
+        Hệ thống thử nghiệm đọc công thức toán học từ hình ảnh và chuyển sang giọng nói.
+      </p>
+      <a href="https://formula.kimtudien.com.vn/" target="_blank"
+         class="inline-block mt-4 text-blue-600 hover:underline">
+        Visit →
+      </a>
+    </div>
 
-    <!-- NhanThu -->
-    <a href="https://nhanthu.kimtudien.com.vn/"
-       class="group bg-white rounded-xl shadow hover:shadow-lg transition p-6 border">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">
-        🎧 NhanThu
-      </h2>
-      <p class="text-gray-600 mb-4">
-        Thư viện sách nói, hỗ trợ tiếp cận tri thức bằng âm thanh.
+    <!-- Audio Library -->
+    <div class="bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-semibold">Audio Book Library</h2>
+      <p class="mt-2 text-slate-600" data-lang="en">
+        A digital library providing spoken books and learning materials.
       </p>
-      <span class="text-sm text-indigo-500 group-hover:underline">
-        nhanthu.kimtudien.com.vn →
-      </span>
-    </a>
+      <p class="mt-2 text-slate-600" data-lang="vi">
+        Thư viện sách nói và tài liệu học tập hỗ trợ tiếp cận tri thức.
+      </p>
+      <a href="https://nhanthu.kimtudien.com.vn/" target="_blank"
+         class="inline-block mt-4 text-blue-600 hover:underline">
+        Visit →
+      </a>
+    </div>
 
     <!-- Taking Picture -->
-    <a href="http://taking-picture.kimtudien.com.vn/"
-       class="group bg-white rounded-xl shadow hover:shadow-lg transition p-6 border">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">
-        📷 Taking Picture
-      </h2>
-      <p class="text-gray-600 mb-4">
-        Chụp ảnh và đọc nội dung bằng giọng nói cho người khiếm thị.
+    <div class="bg-white rounded-xl shadow p-6 md:col-span-2">
+      <h2 class="text-xl font-semibold">Taking Picture</h2>
+      <p class="mt-2 text-slate-600" data-lang="en">
+        A prototype that captures images and provides spoken descriptions as an
+        assistive tool.
       </p>
-      <span class="text-sm text-indigo-500 group-hover:underline">
-        taking-picture.kimtudien.com.vn →
-      </span>
-    </a>
+      <p class="mt-2 text-slate-600" data-lang="vi">
+        Ứng dụng thử nghiệm chụp ảnh và mô tả bằng giọng nói, hướng đến hỗ trợ tiếp cận.
+      </p>
+      <p class="mt-2 text-sm text-orange-600" data-lang="en">
+        ⚠ This application is currently under active development.
+      </p>
+      <p class="mt-2 text-sm text-orange-600" data-lang="vi">
+        ⚠ Ứng dụng hiện đang trong giai đoạn phát triển.
+      </p>
+      <a href="http://taking-picture.kimtudien.com.vn/" target="_blank"
+         class="inline-block mt-4 text-blue-600 hover:underline">
+        Visit →
+      </a>
+    </div>
 
-  </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="mt-16 text-sm text-gray-500">
-    © 2026 Kim Từ Điển · welcome.kimtudien.com.vn
+  <footer class="bg-slate-100 border-t">
+    <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-slate-600">
+      <p data-lang="en">
+        This website is used for academic demonstration and research purposes only.
+      </p>
+      <p data-lang="vi">
+        Trang web này chỉ phục vụ mục đích học thuật và nghiên cứu.
+      </p>
+      <p class="mt-1">
+        © Faculty of Computer Science – University of Science, VNUHCM
+      </p>
+    </div>
   </footer>
-
 </body>
 </html>
