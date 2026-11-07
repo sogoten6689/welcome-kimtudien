@@ -2,8 +2,12 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Research Projects – HCMUS Lab</title>
+  <title>CLC – Trung tâm Ngôn ngữ học tính toán | Research Prototypes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Các nguyên mẫu nghiên cứu của CLC – Trung tâm Ngôn ngữ học tính toán, Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM: xử lý tiếng Việt, ngữ liệu song ngữ, xử lý tiếng nói và công nghệ hỗ trợ tiếp cận."
+  />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,7 +16,13 @@
   <script>
     function setLang(lang) {
       document.querySelectorAll("[data-lang]").forEach(el => {
-        el.style.display = el.dataset.lang === lang ? "block" : "none";
+        el.hidden = el.dataset.lang !== lang;
+      });
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+        const active = btn.dataset.langBtn === lang;
+        btn.classList.toggle("bg-slate-900", active);
+        btn.classList.toggle("text-white", active);
       });
     }
     window.onload = () => setLang("vi");
@@ -21,152 +31,216 @@
 
 <body class="bg-slate-50 text-slate-800">
   <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-start">
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col-reverse gap-4 sm:flex-row sm:justify-between sm:items-start">
       <div>
-        <h1 class="text-2xl font-bold text-slate-900">
-          Research & Student Projects
-        </h1>
-        <p class="mt-2 text-slate-600" data-lang="en">
-          Laboratory projects under the supervision of  
-          <span class="font-medium">University of Science – VNUHCM</span>
+        <p class="text-xs font-semibold tracking-widest uppercase text-blue-700">
+          Computational Linguistics Center
         </p>
+        <h1 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-900" data-lang="vi">
+          CLC – Trung tâm Ngôn ngữ học tính toán
+        </h1>
+        <h1 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-900" data-lang="en">
+          CLC – Computational Linguistics Center
+        </h1>
         <p class="mt-2 text-slate-600" data-lang="vi">
-          Các dự án nghiên cứu và đồ án sinh viên được thực hiện  
-          dưới sự quản lý của  
-          <span class="font-medium">Trường Đại học Khoa học Tự nhiên – ĐHQG HCM</span>
+          Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia TP. Hồ Chí Minh
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          University of Science, Vietnam National University – Ho Chi Minh City
         </p>
         <a
           href="https://www.clc.hcmus.edu.vn/"
           target="_blank"
-          class="inline-block mt-3 text-blue-600 hover:underline text-sm"
+          rel="noopener"
+          class="inline-block mt-3 text-blue-700 hover:underline text-sm"
         >
-          Faculty of Computer Science (CLC) ↗
+          clc.hcmus.edu.vn ↗
         </a>
       </div>
 
       <!-- Language Switch -->
-      <div class="space-x-2 text-sm">
-        <button onclick="setLang('vi')" class="px-3 py-1 border rounded hover:bg-slate-100">VI</button>
-        <button onclick="setLang('en')" class="px-3 py-1 border rounded hover:bg-slate-100">EN</button>
+      <div class="flex gap-2 text-sm shrink-0">
+        <button onclick="setLang('vi')" data-lang-btn="vi" class="px-3 py-1 border border-slate-300 rounded">VI</button>
+        <button onclick="setLang('en')" data-lang-btn="en" class="px-3 py-1 border border-slate-300 rounded">EN</button>
       </div>
     </div>
   </header>
 
-  <!-- Intro -->
-  <section class="max-w-6xl mx-auto px-6 py-10">
-    <p class="text-lg text-slate-700" data-lang="en">
-      This website introduces a set of experimental applications and research
-      prototypes developed by students as part of coursework, graduation
-      projects, and laboratory research activities.
+  <!-- About -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="vi">Giới thiệu</h2>
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="en">About</h2>
+    <p class="mt-3 text-lg leading-relaxed text-slate-700" data-lang="vi">
+      CLC là trung tâm nghiên cứu liên ngành giữa ngôn ngữ học và khoa học máy tính,
+      trực thuộc Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM, tập trung vào xử lý tự động
+      tiếng Việt và các ngôn ngữ liên quan, từ kho ngữ liệu, từ điển đến công cụ xử lý.
+      Trang này giới thiệu các nguyên mẫu nghiên cứu (research prototype) do trung tâm phát triển
+      trong các đề tài nghiên cứu, khoá luận tốt nghiệp và đồ án của sinh viên.
     </p>
-    <p class="text-lg text-slate-700" data-lang="vi">
-      Trang web này giới thiệu các ứng dụng thử nghiệm và hệ thống nghiên cứu
-      được phát triển bởi sinh viên trong các học phần, đồ án tốt nghiệp và
-      hoạt động nghiên cứu tại phòng thí nghiệm.
+    <p class="mt-3 text-lg leading-relaxed text-slate-700" data-lang="en">
+      CLC is an interdisciplinary research center bridging linguistics and computer science
+      at the University of Science, VNU-HCM, focusing on the automatic processing of Vietnamese
+      and related languages through corpora, dictionaries and language tools. This site presents
+      research prototypes developed at the center through research projects, graduation theses
+      and student coursework.
     </p>
+  </section>
+
+  <!-- Research areas -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="vi">Hướng nghiên cứu</h2>
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="en">Research areas</h2>
+    <div class="mt-4 grid gap-4 md:grid-cols-3">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-slate-900" data-lang="vi">Xử lý văn bản Hán Nôm</h3>
+        <h3 class="font-semibold text-slate-900" data-lang="en">Sino-Nom text processing</h3>
+        <p class="mt-2 text-sm text-slate-600" data-lang="vi">
+          Nhận dạng ký tự (OCR), phiên âm sang chữ Quốc ngữ và dịch nghĩa văn bản Hán Nôm sang tiếng Việt hiện đại.
+        </p>
+        <p class="mt-2 text-sm text-slate-600" data-lang="en">
+          Optical character recognition, transliteration into the Vietnamese Latin script, and translation of Sino-Nom texts into modern Vietnamese.
+        </p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-slate-900" data-lang="vi">Ngữ liệu và ngôn ngữ học đối chiếu</h3>
+        <h3 class="font-semibold text-slate-900" data-lang="en">Corpora and contrastive linguistics</h3>
+        <p class="mt-2 text-sm text-slate-600" data-lang="vi">
+          Xây dựng kho ngữ liệu song ngữ và công cụ tra cứu phục vụ nghiên cứu đối chiếu và dịch máy.
+        </p>
+        <p class="mt-2 text-sm text-slate-600" data-lang="en">
+          Bilingual corpora and search tools for contrastive studies and machine translation.
+        </p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-slate-900" data-lang="vi">Tiếng nói và hỗ trợ tiếp cận</h3>
+        <h3 class="font-semibold text-slate-900" data-lang="en">Speech and accessibility</h3>
+        <p class="mt-2 text-sm text-slate-600" data-lang="vi">
+          Tương tác giọng nói và chuyển đổi nội dung sang lời đọc, hướng đến người khiếm thị.
+        </p>
+        <p class="mt-2 text-sm text-slate-600" data-lang="en">
+          Voice interaction and text-to-speech conversion, with a focus on visually impaired users.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Projects -->
-  <section class="max-w-6xl mx-auto px-6 pb-16 grid gap-6 md:grid-cols-2">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-16">
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="vi">Nguyên mẫu nghiên cứu</h2>
+    <h2 class="text-sm font-semibold tracking-widest uppercase text-slate-500" data-lang="en">Research prototypes</h2>
 
-    <!-- VoiceDict -->
-    <div class="bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-semibold">VoiceDict</h2>
-      <p class="mt-2 text-slate-600" data-lang="en">
-        A multilingual dictionary designed to support visually impaired users
-        through speech interaction.
-      </p>
-      <p class="mt-2 text-slate-600" data-lang="vi">
-        Ứng dụng từ điển đa ngữ hỗ trợ người khiếm thị thông qua tương tác giọng nói.
-      </p>
-      <a href="https://multidic.kimtudien.com.vn/" target="_blank"
-         class="inline-block mt-4 text-blue-600 hover:underline">
-        Visit →
-      </a>
+    <div class="mt-4 grid gap-6 md:grid-cols-2">
+
+      <!-- VoiceDict -->
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <span class="text-xs font-medium text-blue-700" data-lang="vi">Tiếng nói và hỗ trợ tiếp cận</span>
+        <span class="text-xs font-medium text-blue-700" data-lang="en">Speech and accessibility</span>
+        <h3 class="mt-1 text-xl font-semibold">VoiceDict</h3>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Từ điển đa ngữ tương tác bằng giọng nói, giúp người khiếm thị tra cứu từ vựng.
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          A multilingual dictionary with voice interaction, enabling visually impaired users to look up vocabulary.
+        </p>
+        <a href="https://multidic.kimtudien.com.vn/" target="_blank" rel="noopener"
+           class="inline-block mt-4 text-blue-700 hover:underline">
+          multidic.kimtudien.com.vn →
+        </a>
+      </div>
+
+      <!-- Paracor -->
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <span class="text-xs font-medium text-blue-700" data-lang="vi">Ngữ liệu và ngôn ngữ học đối chiếu</span>
+        <span class="text-xs font-medium text-blue-700" data-lang="en">Corpora and contrastive linguistics</span>
+        <h3 class="mt-1 text-xl font-semibold">Paracor</h3>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Kho ngữ liệu song ngữ đối chiếu (parallel corpus) và công cụ tra cứu phục vụ nghiên cứu ngôn ngữ học.
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          A bilingual parallel corpus with search tools for linguistic research.
+        </p>
+        <a href="https://paracor.kimtudien.com.vn/" target="_blank" rel="noopener"
+           class="inline-block mt-4 text-blue-700 hover:underline">
+          paracor.kimtudien.com.vn →
+        </a>
+      </div>
+
+      <!-- Math2Speech -->
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <span class="text-xs font-medium text-blue-700" data-lang="vi">Tiếng nói và hỗ trợ tiếp cận</span>
+        <span class="text-xs font-medium text-blue-700" data-lang="en">Speech and accessibility</span>
+        <h3 class="mt-1 text-xl font-semibold">Math2Speech</h3>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Nhận dạng công thức toán học từ hình ảnh và chuyển thành lời đọc, hỗ trợ người khiếm thị tiếp cận tài liệu khoa học.
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          Recognizes mathematical formulas in images and converts them into speech, helping visually impaired readers access scientific documents.
+        </p>
+        <a href="https://formula.kimtudien.com.vn/" target="_blank" rel="noopener"
+           class="inline-block mt-4 text-blue-700 hover:underline">
+          formula.kimtudien.com.vn →
+        </a>
+      </div>
+
+      <!-- Audio Library -->
+      <div class="bg-white border border-slate-200 rounded-lg p-6">
+        <span class="text-xs font-medium text-blue-700" data-lang="vi">Tiếng nói và hỗ trợ tiếp cận</span>
+        <span class="text-xs font-medium text-blue-700" data-lang="en">Speech and accessibility</span>
+        <h3 class="mt-1 text-xl font-semibold" data-lang="vi">Nhãn Thư – Thư viện sách nói</h3>
+        <h3 class="mt-1 text-xl font-semibold" data-lang="en">Nhãn Thư – Audio Book Library</h3>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Thư viện sách nói và tài liệu học tập, mở rộng khả năng tiếp cận tri thức.
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          A library of audiobooks and learning materials that broadens access to knowledge.
+        </p>
+        <a href="https://nhanthu.kimtudien.com.vn/" target="_blank" rel="noopener"
+           class="inline-block mt-4 text-blue-700 hover:underline">
+          nhanthu.kimtudien.com.vn →
+        </a>
+      </div>
+
+      <!-- Taking Picture -->
+      <div class="bg-white border border-slate-200 rounded-lg p-6 md:col-span-2">
+        <span class="text-xs font-medium text-blue-700" data-lang="vi">Tiếng nói và hỗ trợ tiếp cận</span>
+        <span class="text-xs font-medium text-blue-700" data-lang="en">Speech and accessibility</span>
+        <h3 class="mt-1 text-xl font-semibold">Taking Picture</h3>
+        <p class="mt-2 text-slate-600" data-lang="vi">
+          Chụp ảnh và mô tả nội dung ảnh bằng giọng nói, như một công cụ hỗ trợ tiếp cận.
+        </p>
+        <p class="mt-2 text-slate-600" data-lang="en">
+          Captures images and describes them through speech as an assistive tool.
+        </p>
+        <p class="mt-2 text-sm text-orange-700" data-lang="vi">
+          ⚠ Ứng dụng hiện đang trong giai đoạn phát triển.
+        </p>
+        <p class="mt-2 text-sm text-orange-700" data-lang="en">
+          ⚠ This application is currently under active development.
+        </p>
+        <a href="https://taking-picture.kimtudien.com.vn/" target="_blank" rel="noopener"
+           class="inline-block mt-4 text-blue-700 hover:underline">
+          taking-picture.kimtudien.com.vn →
+        </a>
+      </div>
+
     </div>
-
-    <!-- Paracor -->
-    <div class="bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-semibold">Paracor</h2>
-      <p class="mt-2 text-slate-600" data-lang="en">
-        A bilingual parallel corpus system for linguistic comparison and research.
-      </p>
-      <p class="mt-2 text-slate-600" data-lang="vi">
-        Hệ thống song ngữ đối chiếu phục vụ nghiên cứu ngôn ngữ học.
-      </p>
-      <a href="https://paracor.kimtudien.com.vn/" target="_blank"
-         class="inline-block mt-4 text-blue-600 hover:underline">
-        Visit →
-      </a>
-    </div>
-
-    <!-- Math2Speech -->
-    <div class="bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-semibold">Math2Speech</h2>
-      <p class="mt-2 text-slate-600" data-lang="en">
-        An experimental system that recognizes mathematical formulas from images
-        and converts them into speech.
-      </p>
-      <p class="mt-2 text-slate-600" data-lang="vi">
-        Hệ thống thử nghiệm đọc công thức toán học từ hình ảnh và chuyển sang giọng nói.
-      </p>
-      <a href="https://formula.kimtudien.com.vn/" target="_blank"
-         class="inline-block mt-4 text-blue-600 hover:underline">
-        Visit →
-      </a>
-    </div>
-
-    <!-- Audio Library -->
-    <div class="bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-semibold">Audio Book Library</h2>
-      <p class="mt-2 text-slate-600" data-lang="en">
-        A digital library providing spoken books and learning materials.
-      </p>
-      <p class="mt-2 text-slate-600" data-lang="vi">
-        Thư viện sách nói và tài liệu học tập hỗ trợ tiếp cận tri thức.
-      </p>
-      <a href="https://nhanthu.kimtudien.com.vn/" target="_blank"
-         class="inline-block mt-4 text-blue-600 hover:underline">
-        Visit →
-      </a>
-    </div>
-
-    <!-- Taking Picture -->
-    <div class="bg-white rounded-xl shadow p-6 md:col-span-2">
-      <h2 class="text-xl font-semibold">Taking Picture</h2>
-      <p class="mt-2 text-slate-600" data-lang="en">
-        A prototype that captures images and provides spoken descriptions as an
-        assistive tool.
-      </p>
-      <p class="mt-2 text-slate-600" data-lang="vi">
-        Ứng dụng thử nghiệm chụp ảnh và mô tả bằng giọng nói, hướng đến hỗ trợ tiếp cận.
-      </p>
-      <p class="mt-2 text-sm text-orange-600" data-lang="en">
-        ⚠ This application is currently under active development.
-      </p>
-      <p class="mt-2 text-sm text-orange-600 d-none hidden invisible" data-lang="vi">
-        ⚠ Ứng dụng hiện đang trong giai đoạn phát triển.
-      </p>
-      <a href="http://taking-picture.kimtudien.com.vn/" target="_blank"
-         class="inline-block mt-4 text-blue-600 hover:underline">
-        Visit →
-      </a>
-    </div>
-
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-100 border-t">
-    <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-slate-600">
-      <p data-lang="en">
-        This website is used for academic demonstration and research purposes only.
-      </p>
+  <footer class="bg-slate-100 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 text-sm text-slate-600">
       <p data-lang="vi">
-        Trang web này chỉ phục vụ mục đích học thuật và nghiên cứu.
+        Các hệ thống trên là nguyên mẫu nghiên cứu, chỉ phục vụ mục đích học thuật và nghiên cứu.
       </p>
-      <p class="mt-1">
-        © Faculty of Computer Science – University of Science, VNUHCM
+      <p data-lang="en">
+        The systems above are research prototypes intended for academic and research purposes only.
+      </p>
+      <p class="mt-1" data-lang="vi">
+        © CLC – Trung tâm Ngôn ngữ học tính toán, Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+      </p>
+      <p class="mt-1" data-lang="en">
+        © CLC – Computational Linguistics Center, University of Science, VNU-HCM
       </p>
     </div>
   </footer>
